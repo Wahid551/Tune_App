@@ -190,10 +190,11 @@ class _HealthHistoryFormState extends State<HealthHistoryForm> {
                               // ignore: prefer_const_literals_to_create_immutables
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.teal,
-                                  blurRadius: 8.0,
+                                  color: Colors.teal.shade900,
+                                  blurRadius: 1.0,
                                   offset: Offset(0, 3),
-                                  spreadRadius: 0.2,
+                                  spreadRadius: 0.1,
+                                  // spreadRadius: 0.3,
                                 ),
                               ]),
                         ),
