@@ -4,8 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:tune_app/screens/health_history_form/black_button.dart';
 import 'package:tune_app/screens/health_history_form/button.dart';
 import 'package:tune_app/screens/health_history_form/primary_button.dart';
+import 'package:tune_app/screens/health_history_form/symtomps_button.dart';
 import 'package:tune_app/screens/health_history_form/textFIeld.dart';
 import 'package:tune_app/screens/health_history_form/textStyle.dart';
+
+enum Option { yes, no }
+enum Opt { yes, no }
 
 class HealthHistoryForm extends StatefulWidget {
   const HealthHistoryForm({Key? key}) : super(key: key);
@@ -15,6 +19,8 @@ class HealthHistoryForm extends StatefulWidget {
 }
 
 class _HealthHistoryFormState extends State<HealthHistoryForm> {
+  Option option = Option.yes;
+  Opt optt = Opt.yes;
   bool vall = true;
   bool value1 = false;
   bool value2 = false;
@@ -24,7 +30,7 @@ class _HealthHistoryFormState extends State<HealthHistoryForm> {
   bool value6 = false;
   bool value7 = false;
   bool value8 = false;
-  int a = 1, b = 2, c = 3, d = 4;
+
   Widget checkBoxx(String txt, int num) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,30 +66,22 @@ class _HealthHistoryFormState extends State<HealthHistoryForm> {
                                         : value8,
             onChanged: (value) {
               setState(() {
-                if (num == 1 || num == 5) {
-                  value1 = num == 1 ? value! : value1;
-                  value2 = false;
-                  value3 = false;
-                  value4 = false;
-                  value5 = num == 5 ? value! : value5;
-                } else if (num == 2 || num == 6) {
-                  value1 = false;
-                  value2 = num == 2 ? value! : value2;
-                  value3 = false;
-                  value4 = false;
-                  value6 = num == 6 ? value! : value6;
-                } else if (num == 3 || num == 7) {
-                  value1 = false;
-                  value3 = num == 3 ? value! : value3;
-                  value2 = false;
-                  value4 = false;
-                  value7 = num == 7 ? value! : value7;
-                } else if (num == 4 || num == 8) {
-                  value1 = false;
-                  value4 = num == 4 ? value! : value4;
-                  value3 = false;
-                  value2 = false;
-                  value8 = num == 8 ? value! : value8;
+                if (num == 1) {
+                  value1 = value!;
+                } else if (num == 2) {
+                  value2 = value!;
+                } else if (num == 3) {
+                  value3 = value!;
+                } else if (num == 4) {
+                  value4 = value!;
+                } else if (num == 5) {
+                  value5 = value!;
+                } else if (num == 6) {
+                  value6 = value!;
+                } else if (num == 7) {
+                  value7 = value!;
+                } else if (num == 8) {
+                  value8 = value!;
                 }
               });
             },
@@ -191,9 +189,9 @@ class _HealthHistoryFormState extends State<HealthHistoryForm> {
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.teal.shade900,
-                                  blurRadius: 1.0,
-                                  offset: Offset(0, 3),
-                                  spreadRadius: 0.1,
+                                  blurRadius: 8.0,
+                                  offset: Offset(6, 4),
+                                  // spreadRadius: 0.1,
                                   // spreadRadius: 0.3,
                                 ),
                               ]),
@@ -218,22 +216,40 @@ class _HealthHistoryFormState extends State<HealthHistoryForm> {
                     children: [
                       Expanded(
                         child: OutlineeButton(
-                          tap: () {
-                            // setState(() {
-                            //   vall = !vall;
-                            // });
+                          txt: 'yes',
+                          onPressed: () {
+                            setState(() {
+                              optt = Opt.yes;
+                            });
                           },
-                          val: true,
+                          bckcolor: optt == Opt.yes
+                              ? Color(0xFF182B2B)
+                              : Color(0xFF3A4146),
+                          forgrndcolor: optt == Opt.yes
+                              ? Color(0xFF1DC3A7)
+                              : Color(0xFFE4E4E4),
+                          bordercolor: optt == Opt.yes
+                              ? Color(0xFF1DC3A7)
+                              : Color(0xFF3A4146),
                         ),
                       ),
                       Expanded(
                         child: OutlineeButton(
-                          tap: () {
+                          txt: 'no',
+                          onPressed: () {
                             setState(() {
-                              vall = !vall;
+                              optt = Opt.no;
                             });
                           },
-                          val: false,
+                          bckcolor: optt == Opt.no
+                              ? Color(0xFF182B2B)
+                              : Color(0xFF3A4146),
+                          forgrndcolor: optt == Opt.no
+                              ? Color(0xFF1DC3A7)
+                              : Color(0xFFE4E4E4),
+                          bordercolor: optt == Opt.no
+                              ? Color(0xFF1DC3A7)
+                              : Color(0xFF3A4146),
                         ),
                       ),
                     ],
@@ -332,23 +348,41 @@ class _HealthHistoryFormState extends State<HealthHistoryForm> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
-                        child: OutlineeButton(
-                          tap: () {
-                            // setState(() {
-                            //   vall = !vall;
-                            // });
+                        child: OutlineeeButton(
+                          txt: 'yes',
+                          onPressed: () {
+                            setState(() {
+                              option = Option.yes;
+                            });
                           },
-                          val: true,
+                          bckcolor: option == Option.yes
+                              ? Color(0xFF182B2B)
+                              : Color(0xFF3A4146),
+                          forgrndcolor: option == Option.yes
+                              ? Color(0xFF1DC3A7)
+                              : Color(0xFFE4E4E4),
+                          bordercolor: option == Option.yes
+                              ? Color(0xFF1DC3A7)
+                              : Color(0xFF3A4146),
                         ),
                       ),
                       Expanded(
-                        child: OutlineeButton(
-                          tap: () {
+                        child: OutlineeeButton(
+                          txt: 'no',
+                          onPressed: () {
                             setState(() {
-                              vall = !vall;
+                              option = Option.no;
                             });
                           },
-                          val: false,
+                          bckcolor: option == Option.no
+                              ? Color(0xFF182B2B)
+                              : Color(0xFF3A4146),
+                          forgrndcolor: option == Option.no
+                              ? Color(0xFF1DC3A7)
+                              : Color(0xFFE4E4E4),
+                          bordercolor: option == Option.no
+                              ? Color(0xFF1DC3A7)
+                              : Color(0xFF3A4146),
                         ),
                       ),
                     ],
