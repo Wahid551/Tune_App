@@ -69,11 +69,14 @@ class _BlackButtonsState extends State<BlackButtons> {
             // left: size.width / 1.6,
             right: size.width / 6,
             top: size.height / 40,
-            child: Text(
-              'no'.toUpperCase(),
-              style: SStyling.detail.copyWith(
-                fontSize: 13,
-                fontWeight: FontWeight.bold,
+            child: GestureDetector(
+              onTap: () {},
+              child: Text(
+                'no'.toUpperCase(),
+                style: SStyling.detail.copyWith(
+                  fontSize: 13,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
