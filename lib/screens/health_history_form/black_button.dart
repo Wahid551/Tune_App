@@ -8,6 +8,7 @@ class BlackButtons extends StatefulWidget {
 
   // ignore: prefer_const_constructors_in_immutables
   BlackButtons({this.text});
+  // constructor
 
   @override
   _BlackButtonsState createState() => _BlackButtonsState();
